@@ -86,17 +86,36 @@
       position: relative;
       height: 100vh;
       min-height: 600px;
+    
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    
+      text-align: center;
     }
 
     /* The astronomical background image */
     .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('background_image.jpeg');
+      position: absolute;
+      inset: 0;
+    
+      background:
+        linear-gradient(
+          135deg,
+          rgba(55, 25, 79, 0.70),
+          rgba(76, 33, 110, 0.45),
+          rgba(20, 20, 35, 0.65)
+        ),
+        url('background_image.jpeg');
+    
       background-size: cover;
       background-position: center;
-      filter: brightness(0.55) saturate(1.2);f
+    
+      filter: brightness(0.85) saturate(1.15);
+    
+      transform: scale(1.02);
     }
     /* Gradient overlays */
     .hero-overlay-top {
@@ -105,18 +124,35 @@
       z-index: 1;
     }
     .hero-overlay-bottom {
-      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
-      background: linear-gradient(to top, var(--white), transparent);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    
+      height: 220px;
+    
+      background: linear-gradient(
+        to top,
+        #FCFCFC,
+        transparent
+      );
+    
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-
+    
       padding: 20px;
+    
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    
+      text-align: center;
     }
-
     .hero img {
       width: 220px;
       height: 220px;
