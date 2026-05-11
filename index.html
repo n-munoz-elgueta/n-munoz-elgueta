@@ -80,30 +80,34 @@
     }
 
     /* ───────── HERO ───────── */
-
+    /* ─── HOME ─── */
+    /* Hero: astronomical background */
     .hero {
       position: relative;
-      min-height: 100vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      text-align: center;
-
+      height: 100vh;
+      min-height: 600px;
       overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
 
+    /* The astronomical background image */
     .hero-bg {
-      position: absolute;
-      inset: 0;
-
-      background:
-        linear-gradient(rgba(20,20,30,0.55), rgba(20,20,30,0.65)),
-        url("background_image.jpeg");
-
+      position: absolute; inset: 0;
+      background-image: url('background_image.jpg');
       background-size: cover;
       background-position: center;
+      filter: brightness(0.55) saturate(1.2);f
+    }
+    /* Gradient overlays */
+    .hero-overlay-top {
+      position: absolute; top: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to bottom, rgba(14,14,18,0.7), transparent);
+      z-index: 1;
+    }
+    .hero-overlay-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to top, var(--white), transparent);
+      z-index: 1;
     }
 
     .hero-content {
@@ -137,6 +141,7 @@
       font-size: 24px;
       letter-spacing: 1px;
     }
+    
 
     /* ───────── PAGES ───────── */
 
@@ -179,6 +184,8 @@
     a {
       color: var(--accent);
     }
+
+    
 
     /* ───────── RESEARCH CARDS ───────── */
 
@@ -312,6 +319,10 @@
     <section class="hero">
 
       <div class="hero-bg"></div>
+      
+      <div class="hero-overlay-top"></div>
+      
+      <div class="hero-overlay-bottom"></div>
 
       <div class="hero-content">
 
