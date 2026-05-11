@@ -1,158 +1,506 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nahir Muñoz Elgueta</title>
-    <style>
-        body {
-            font-family: Calibri;
-            margin: 0;
-            padding: 0;
-            background: #FCFCFC;
-            color: #E3E1E5;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nahir Muñoz Elgueta</title>
 
-        header {
-            background: url("background_image.jpeg") center/cover no-repeat;
-            color: #e0e0e0;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        header img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #E3E1E5;
-            margin-bottom: 20px;
-        }
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            background: #e9e6f0;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            color: #2d2d2d;
-            font-size: 20px; 
-        }
-        h2 {
-            color: #37194F;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-        }
-        a {
-            color: #4C216E;
-        }
-        .gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-top: 20px;
-        }
+    :root {
+      --bg: #FCFCFC;
+      --section-bg: #e9e6f0;
+      --text-dark: #2d2d2d;
+      --title: #37194F;
+      --accent: #4C216E;
+      --light: #E3E1E5;
+      --gold: #d4af37;
+      --gold-hover: #b9972e;
+      --shadow: rgba(0,0,0,0.25);
+    }
 
-        .gallery div {
-            text-align: center;
-        }
-        
-        .gallery img {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 10px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #b5b5b5;
-            margin-top: 40px;
-        }
+    body {
+      font-family: Calibri, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 20px;
+    }
 
-        .cv-button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #d4af37;
-            color: black;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        
-        .cv-button:hover {
-            background-color: #b9972e;
-        }
-    </style>
+    /* ───────── NAVBAR ───────── */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 40px;
+
+      background: rgba(25, 20, 35, 0.75);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+    }
+
+    /* ───────── HERO ───────── */
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(rgba(20,20,30,0.55), rgba(20,20,30,0.65)),
+        url("background_image.jpeg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      padding: 20px;
+    }
+
+    .hero img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+
+      border: 4px solid var(--light);
+
+      margin-bottom: 30px;
+
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 56px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--light);
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    /* ───────── PAGES ───────── */
+
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding-top: 100px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* ───────── SECTIONS ───────── */
+
+    .section {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: var(--section-bg);
+
+      padding: 40px;
+
+      border-radius: 14px;
+
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .section h2 {
+      color: var(--title);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #aaa;
+      font-size: 38px;
+    }
+
+    .section p {
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    /* ───────── RESEARCH CARDS ───────── */
+
+    .research-item {
+      margin-bottom: 60px;
+    }
+
+    .research-item img {
+      width: 100%;
+      max-width: 650px;
+      display: block;
+      margin: 25px auto;
+      border-radius: 12px;
+    }
+
+    .research-item h3 {
+      color: var(--title);
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
+
+    .research-link {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* ───────── CV BUTTON ───────── */
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+
+      background: var(--gold);
+
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+
+      border-radius: 8px;
+
+      transition: 0.3s;
+    }
+
+    .cv-button:hover {
+      background: var(--gold-hover);
+    }
+
+    /* ───────── CONTACT ───────── */
+
+    .contact-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .contact-list li {
+      margin-bottom: 14px;
+    }
+
+    /* ───────── FOOTER ───────── */
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 16px;
+    }
+
+    /* ───────── MOBILE ───────── */
+
+    @media (max-width: 768px) {
+
+      body {
+        font-size: 18px;
+      }
+
+      nav {
+        padding: 16px 20px;
+      }
+
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 20px;
+      }
+
+      .hero img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .section {
+        margin: 30px 16px;
+        padding: 28px;
+      }
+
+      .section h2 {
+        font-size: 32px;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-    <header>
-        <img src="nahir_web.jpeg" alt="Foto de perfil" />
+
+  <!-- ───────── NAVBAR ───────── -->
+
+  <nav>
+    <a class="nav-logo" href="#">Nahir Muñoz Elgueta</a>
+
+    <div class="nav-links">
+      <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
+      <a href="#" onclick="showPage('research')" id="nav-research">Research</a>
+      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ───────── HOME ───────── -->
+
+  <div id="page-home" class="page active">
+
+    <section class="hero">
+
+      <div class="hero-bg"></div>
+
+      <div class="hero-content">
+
+        <img src="nahir_web.jpeg" alt="Nahir Muñoz Elgueta">
+
         <h1>Dr. Nahir Muñoz Elgueta</h1>
-        <p>Welcome to my website</p>
-    </header>
 
-    <section>
-        <h2>About me</h2>
-        <p>
-            I am a chilean astrophysicist and data analyst based in Munich. I earned my Ph.D. in Astrophysics from the Ludwig-Maximilians-Universität. 
-            I have worked exploring galaxies and the distant universe, using different computational tools to understand how
-            cosmic structures evolve. Along the way, I discovered that I really enjoy the process itself: analysing data, building models,
-            uncovering patterns, and translating complexity into clarity. Also, communicating those discoveries to a general public is something
-            that really inspires me. I believe science has the power to connect people, and I’m excited about contributing to that through analysis,
-            creativity, and communication.
-        </p>
+        <p>Astrophysicist · Data Analyst · Science Communicator</p>
+
+      </div>
+
     </section>
 
-    <section>
-        <h2>My Research</h2>
-        <p>
-            My research focuses on understanding high-redshift galaxy formation and evolution, with particular emphasis on the circumgactic gas and its link with the galaxies' properties. 
-            The discovery of very extended Lyman-alpha nebulae around high-redshift quasars is routinely reported nowadays, opening up the study of halo gas around massive systems and
-            allowing the characterization of the atomic gas properties. On the contrary, little is known about the molecular gas reservoirs in these galaxies. In this context,
-            I have been working at the interface between observations and simulations. With observations I constrained the molecular gas reservoirs in quasars' host galaxies at z~3, 
-            and with simulations I predicted [CII] emission levels in halo scales of z~4-6 star-forming galaxies.
-        </p>
-        <div class="gallery">
-            <div>
-                <img src="image3.jpeg" alt="Imagen 1">
-                <p><a href="https://ui.adsabs.harvard.edu/abs/2024A%26A...690A.392M/abstract" target="_blank">Simulated [CII] emission in high-z star-forming galaxies</a></p>
-            </div>
-        
-            <div>
-                <img src="image4.jpeg" alt="Imagen 2">
-                <p><a href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.1462M/abstract" target="_blank">Molecular gas reservoirs associated with z~3 quasars and their link to the extended Lyα emission</a></p>
-            </div>
-        
-            <div>
-                <p> Additionally, I have also experience working with local objects and optical data. During my master's studies I performed a spectroscopic and kinematic analysis of
-                    a nearby interacting system of galaxies, determining their main physical properties.</p>
-                <img src="image5.jpeg" alt="Imagen 3">
-                <p><a href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.3257M/abstract" target="_blank">Kinematics and physical properties of the nearby galaxy NGC 4656 and its TDG candidate</a></p>
-            </div>
-        </div>
-    </section>
+    <section class="section">
 
-    <section>
-        <h2>Contact</h2>
-        <p>Feel free to get in touch with me:</p>
-        <ul>
-            <li>Email: nahirmunozelgueta@gmail.com</li>
-            <li>LinkedIn: <a href="#">nahir-munoz-elgueta</a></li>
-            <li>GitHub: <a href="#">n-munoz-elgueta</a></li>
-        </ul>
-        <a href="CV_Nahir_Munoz_Elgueta.pdf" download class="cv-button">
-            Download my CV
-        </a>
+      <h2>About Me</h2>
+
+      <p>
+        I am a Chilean astrophysicist and data analyst based in Munich. 
+        I earned my Ph.D. in Astrophysics from the Ludwig-Maximilians-Universität.
+      </p>
+
+      <p>
+        I have worked exploring galaxies and the distant universe, using different computational tools 
+        to understand how cosmic structures evolve. Along the way, I discovered that I really enjoy 
+        the process itself: analysing data, building models, uncovering patterns, and translating 
+        complexity into clarity.
+      </p>
+
+      <p>
+        Communicating scientific discoveries to a general audience is something that deeply inspires me. 
+        I believe science has the power to connect people, and I’m excited about contributing to that 
+        through analysis, creativity, and communication.
+      </p>
+
     </section>
 
     <footer>
-        © 2025 - Nahir Muñoz Elgueta
+      © 2025 · Nahir Muñoz Elgueta
     </footer>
+
+  </div>
+
+  <!-- ───────── RESEARCH ───────── -->
+
+  <div id="page-research" class="page">
+
+    <section class="section">
+
+      <h2>My Research</h2>
+
+      <div class="research-item">
+
+        <h3>Simulated [CII] emission in high-z star-forming galaxies</h3>
+
+        <p>
+          My research focuses on understanding high-redshift galaxy formation and evolution, 
+          with particular emphasis on the circumgalactic gas and its link with galaxy properties.
+        </p>
+
+        <p>
+          I have worked at the interface between observations and simulations. Using simulations, 
+          I predicted [CII] emission levels on halo scales of z~4–6 star-forming galaxies.
+        </p>
+
+        <img src="image3.jpeg" alt="Simulated CII emission">
+
+        <a class="research-link"
+           href="https://ui.adsabs.harvard.edu/abs/2024A%26A...690A.392M/abstract"
+           target="_blank">
+          View publication →
+        </a>
+
+      </div>
+
+      <div class="research-item">
+
+        <h3>Molecular gas reservoirs associated with z~3 quasars</h3>
+
+        <p>
+          The discovery of extended Lyman-alpha nebulae around high-redshift quasars opened the study 
+          of halo gas around massive systems.
+        </p>
+
+        <p>
+          With observations, I constrained the molecular gas reservoirs in quasars’ host galaxies at z~3 
+          and explored their connection to extended Lyα emission.
+        </p>
+
+        <img src="image4.jpeg" alt="Molecular gas reservoirs">
+
+        <a class="research-link"
+           href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.1462M/abstract"
+           target="_blank">
+          View publication →
+        </a>
+
+      </div>
+
+      <div class="research-item">
+
+        <h3>Kinematics and physical properties of nearby galaxies</h3>
+
+        <p>
+          During my master's studies, I performed a spectroscopic and kinematic analysis of 
+          a nearby interacting system of galaxies, determining their main physical properties.
+        </p>
+
+        <img src="image5.jpeg" alt="Nearby galaxy system">
+
+        <a class="research-link"
+           href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.3257M/abstract"
+           target="_blank">
+          View publication →
+        </a>
+
+      </div>
+
+    </section>
+
+    <footer>
+      © 2025 · Nahir Muñoz Elgueta
+    </footer>
+
+  </div>
+
+  <!-- ───────── CONTACT ───────── -->
+
+  <div id="page-contact" class="page">
+
+    <section class="section">
+
+      <h2>Contact</h2>
+
+      <p>Feel free to get in touch with me:</p>
+
+      <ul class="contact-list">
+        <li>Email: <a href="mailto:nahirmunozelgueta@gmail.com">nahirmunozelgueta@gmail.com</a></li>
+
+        <li>
+          LinkedIn:
+          <a href="#" target="_blank">
+            nahir-munoz-elgueta
+          </a>
+        </li>
+
+        <li>
+          GitHub:
+          <a href="#" target="_blank">
+            n-munoz-elgueta
+          </a>
+        </li>
+      </ul>
+
+      <a href="CV_Nahir_Munoz_Elgueta.pdf"
+         download
+         class="cv-button">
+         Download my CV
+      </a>
+
+    </section>
+
+    <footer>
+      © 2025 · Nahir Muñoz Elgueta
+    </footer>
+
+  </div>
+
+  <!-- ───────── JAVASCRIPT ───────── -->
+
+  <script>
+
+    function showPage(name) {
+
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      document.getElementById('page-' + name).classList.add('active');
+      document.getElementById('nav-' + name).classList.add('active');
+
+      window.scrollTo(0, 0);
+    }
+
+  </script>
+
 </body>
 </html>
