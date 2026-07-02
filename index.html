@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nahir Muñoz Elgueta</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+
   <style>
     * {
       margin: 0;
@@ -61,16 +61,19 @@
     }
 
     .nav-logo {
-  color: white;
+      color: white;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
 
-  font-family: 'Cormorant Garamond', serif;
-
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-
-  text-decoration: none;
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
 
     .nav-links {
       display: flex;
@@ -89,28 +92,61 @@
       color: white;
     }
 
+    /* ───────── LANGUAGE SWITCHER ───────── */
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #aaa;
+      font-size: 12px;
+      font-family: Calibri, sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      padding: 3px 5px;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+
+    .lang-btn:hover {
+      color: white;
+    }
+
+    .lang-btn.active {
+      color: white;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .lang-sep {
+      color: #555;
+      font-size: 11px;
+    }
+
     /* ───────── HERO ───────── */
-    /* ─── HOME ─── */
-    /* Hero: astronomical background */
+
     .hero {
       position: relative;
       height: 100vh;
       min-height: 600px;
-    
+
       display: flex;
       justify-content: center;
       align-items: center;
-    
+
       overflow: hidden;
-    
+
       text-align: center;
     }
 
-    /* The astronomical background image */
     .hero-bg {
       position: absolute;
       inset: 0;
-    
+
       background:
         linear-gradient(
           135deg,
@@ -119,50 +155,52 @@
           rgba(20, 20, 35, 0.65)
         ),
         url('background_image.jpeg');
-    
+
       background-size: cover;
       background-position: center;
-    
+
       filter: brightness(0.85) saturate(1.15);
-    
+
       transform: scale(1.02);
     }
-    /* Gradient overlays */
+
     .hero-overlay-top {
       position: absolute; top: 0; left: 0; right: 0; height: 120px;
       background: linear-gradient(to bottom, rgba(14,14,18,0.7), transparent);
       z-index: 1;
     }
+
     .hero-overlay-bottom {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-    
+
       height: 220px;
-    
+
       background: linear-gradient(
         to top,
         #FCFCFC,
         transparent
       );
-    
+
       z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-    
+
       padding: 20px;
-    
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    
+
       text-align: center;
     }
+
     .hero img {
       width: 260px;
       height: 260px;
@@ -178,16 +216,16 @@
 
     .hero h1 {
       color: white;
-    
+
       font-family: 'Cormorant Garamond', serif;
-    
+
       font-size: 48px;
       font-weight: 300;
-    
+
       letter-spacing: 1px;
-    
+
       margin-bottom: 10px;
-    
+
       text-shadow:
         0 2px 10px rgba(0,0,0,0.5),
         0 0 30px rgba(0,0,0,0.3);
@@ -197,11 +235,10 @@
       color: var(--light);
       font-size: 18px;
       letter-spacing: 1px;
-    
+
       text-shadow:
         0 2px 8px rgba(0,0,0,0.4);
     }
-    
 
     /* ───────── PAGES ───────── */
 
@@ -246,8 +283,6 @@
       color: var(--accent);
     }
 
-    
-
     /* ───────── RESEARCH CARDS ───────── */
 
     .research-item {
@@ -283,61 +318,62 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-    
+
       margin-top: 30px;
     }
-    
+
     .resume-column h3 {
       font-family: 'Cormorant Garamond', serif;
-    
+
       font-size: 32px;
       color: var(--title);
-    
+
       margin-bottom: 30px;
     }
-    
+
     .resume-item {
       margin-bottom: 35px;
-    
+
       padding-bottom: 25px;
-    
+
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
-    
+
     .resume-item:last-child {
       border-bottom: none;
     }
-    
+
     .resume-degree {
       font-size: 22px;
       font-weight: bold;
-    
+
       margin-bottom: 5px;
     }
-    
+
     .resume-place {
       color: #555;
-    
+
       margin-bottom: 6px;
     }
-    
+
     .resume-date {
       font-size: 14px;
       letter-spacing: 1px;
-    
+
       color: var(--accent);
-    
+
       text-transform: uppercase;
     }
-    
+
     @media (max-width: 768px) {
-    
+
       .resume-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
-    
+
     }
+
     /* ───────── CV BUTTON ───────── */
 
     .cv-button {
@@ -392,6 +428,10 @@
         padding: 16px 20px;
       }
 
+      .nav-right {
+        gap: 16px;
+      }
+
       .nav-links {
         gap: 16px;
       }
@@ -429,11 +469,21 @@
   <nav>
     <a class="nav-logo" href="#">Nahir Muñoz-Elgueta</a>
 
-    <div class="nav-links">
-      <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
-      <a href="#" onclick="showPage('research')" id="nav-research">Research</a>
-      <a href="#" onclick="showPage('resume')" id="nav-resume">Résumé</a>
-      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#" onclick="showPage('home')" id="nav-home" class="active" data-i18n="nav-home">Home</a>
+        <a href="#" onclick="showPage('research')" id="nav-research" data-i18n="nav-research">Research</a>
+        <a href="#" onclick="showPage('resume')" id="nav-resume" data-i18n="nav-resume">Résumé</a>
+        <a href="#" onclick="showPage('contact')" id="nav-contact" data-i18n="nav-contact">Contact</a>
+      </div>
+
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="lang-en" onclick="setLanguage('en')">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" id="lang-es" onclick="setLanguage('es')">ES</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" id="lang-de" onclick="setLanguage('de')">DE</button>
+      </div>
     </div>
   </nav>
 
@@ -444,9 +494,9 @@
     <section class="hero">
 
       <div class="hero-bg"></div>
-      
+
       <div class="hero-overlay-top"></div>
-      
+
       <div class="hero-overlay-bottom"></div>
 
       <div class="hero-content">
@@ -455,7 +505,7 @@
 
         <h1>Dr. Nahir Muñoz Elgueta</h1>
 
-        <p>Astrophysicist · Data Analyst</p>
+        <p data-i18n="hero-subtitle">Astrophysicist · Data Analyst</p>
 
       </div>
 
@@ -463,23 +513,23 @@
 
     <section class="section">
 
-      <h2><b>About Me</b></h2>
+      <h2><b data-i18n="about-heading">About Me</b></h2>
 
-      <p>
-        I am a Chilean astrophysicist and data analyst based in Munich. 
+      <p data-i18n="about-p1">
+        I am a Chilean astrophysicist and data analyst based in Munich.
         I earned my Ph.D. in Astrophysics from the Ludwig-Maximilians-Universität.
       </p>
 
-      <p>
-        I have worked exploring galaxies and the distant universe, using different computational tools 
-        to understand how cosmic structures evolve. Along the way, I discovered that I really enjoy 
-        the process itself: analysing data, building models, uncovering patterns, and translating 
+      <p data-i18n="about-p2">
+        I have worked exploring galaxies and the distant universe, using different computational tools
+        to understand how cosmic structures evolve. Along the way, I discovered that I really enjoy
+        the process itself: analysing data, building models, uncovering patterns, and translating
         complexity into clarity.
       </p>
 
-      <p>
-        Communicating scientific discoveries to a general audience is something that deeply inspires me. 
-        I believe science has the power to connect people, and I’m excited about contributing to that 
+      <p data-i18n="about-p3">
+        Communicating scientific discoveries to a general audience is something that deeply inspires me.
+        I believe science has the power to connect people, and I'm excited about contributing to that
         through analysis, creativity, and communication.
       </p>
 
@@ -497,19 +547,19 @@
 
     <section class="section">
 
-      <h2><b>My Research</b></h2>
+      <h2><b data-i18n="research-heading">My Research</b></h2>
 
       <div class="research-item">
 
-        <h3>Simulated [CII] emission in high-z star-forming galaxies</h3>
+        <h3 data-i18n="research1-title">Simulated [CII] emission in high-z star-forming galaxies</h3>
 
-        <p>
-          My research focuses on understanding high-redshift galaxy formation and evolution, 
+        <p data-i18n="research1-p1">
+          My research focuses on understanding high-redshift galaxy formation and evolution,
           with particular emphasis on the circumgalactic gas and its link with galaxy properties.
         </p>
 
-        <p>
-          I have worked at the interface between observations and simulations. Using simulations, 
+        <p data-i18n="research1-p2">
+          I have worked at the interface between observations and simulations. Using simulations,
           I predicted [CII] emission levels on halo scales of z~4–6 star-forming galaxies.
         </p>
 
@@ -517,7 +567,8 @@
 
         <a class="research-link"
            href="https://ui.adsabs.harvard.edu/abs/2024A%26A...690A.392M/abstract"
-           target="_blank">
+           target="_blank"
+           data-i18n="view-pub">
           View publication →
         </a>
 
@@ -525,15 +576,15 @@
 
       <div class="research-item">
 
-        <h3>Molecular gas reservoirs associated with z~3 quasars</h3>
+        <h3 data-i18n="research2-title">Molecular gas reservoirs associated with z~3 quasars</h3>
 
-        <p>
-          The discovery of extended Lyman-alpha nebulae around high-redshift quasars opened the study 
+        <p data-i18n="research2-p1">
+          The discovery of extended Lyman-alpha nebulae around high-redshift quasars opened the study
           of halo gas around massive systems.
         </p>
 
-        <p>
-          With observations, I constrained the molecular gas reservoirs in quasars’ host galaxies at z~3 
+        <p data-i18n="research2-p2">
+          With observations, I constrained the molecular gas reservoirs in quasars' host galaxies at z~3
           and explored their connection to extended Lyα emission.
         </p>
 
@@ -541,7 +592,8 @@
 
         <a class="research-link"
            href="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.1462M/abstract"
-           target="_blank">
+           target="_blank"
+           data-i18n="view-pub">
           View publication →
         </a>
 
@@ -549,10 +601,10 @@
 
       <div class="research-item">
 
-        <h3>Kinematics and physical properties of nearby galaxies</h3>
+        <h3 data-i18n="research3-title">Kinematics and physical properties of nearby galaxies</h3>
 
-        <p>
-          During my master's studies, I performed a spectroscopic and kinematic analysis of 
+        <p data-i18n="research3-p1">
+          During my master's studies, I performed a spectroscopic and kinematic analysis of
           a nearby interacting system of galaxies, determining their main physical properties.
         </p>
 
@@ -560,7 +612,8 @@
 
         <a class="research-link"
            href="https://ui.adsabs.harvard.edu/abs/2018MNRAS.480.3257M/abstract"
-           target="_blank">
+           target="_blank"
+           data-i18n="view-pub">
           View publication →
         </a>
 
@@ -575,140 +628,141 @@
   </div>
 
   <!-- ───────── RESUME ───────── -->
-  
+
   <div id="page-resume" class="page">
-  
+
     <section class="section">
-  
-      <h2>Résumé</h2>
-  
+
+      <h2 data-i18n="resume-heading">Résumé</h2>
+
       <div class="resume-grid">
-  
+
         <!-- EDUCATION -->
-  
+
         <div class="resume-column">
-  
-          <h3>Education</h3>
-  
+
+          <h3 data-i18n="education-heading">Education</h3>
+
           <div class="resume-item">
-            <div class="resume-degree">
+            <div class="resume-degree" data-i18n="phd-degree">
               Ph.D. in Astrophysics
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="phd-place">
               Ludwig-Maximilians-Universität München · Germany
             </div>
-  
+
             <div class="resume-date">
               09/2019 – 09/2023
             </div>
           </div>
-  
+
           <div class="resume-item">
-            <div class="resume-degree">
+            <div class="resume-degree" data-i18n="master-degree">
               Master's in Astronomy
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="master-place">
               Universidad de La Serena · Chile
             </div>
-  
+
             <div class="resume-date">
               04/2015 – 04/2018
             </div>
           </div>
-  
+
           <div class="resume-item">
-            <div class="resume-degree">
+            <div class="resume-degree" data-i18n="bachelor-degree">
               Bachelor's in Physics
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="bachelor-place">
               Universidad de La Serena · Chile
             </div>
-  
+
             <div class="resume-date">
               03/2011 – 12/2014
             </div>
           </div>
-  
+
         </div>
-  
+
         <!-- POSITIONS -->
-  
+
         <div class="resume-column">
-  
-          <h3>Positions</h3>
-  
+
+          <h3 data-i18n="positions-heading">Positions</h3>
+
           <div class="resume-item">
-            <div class="resume-degree">
+            <div class="resume-degree" data-i18n="pos1-degree">
               Astrophysics Researcher
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="pos1-place">
               Max Planck Institute for Astrophysics · Garching
             </div>
-  
+
             <div class="resume-date">
               2019 – 2023
             </div>
           </div>
-  
+
           <div class="resume-item">
-            <div class="resume-degree">
+            <div class="resume-degree" data-i18n="pos2-degree">
               Observer & Plugger
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="pos2-place">
               SDSS IV / APOGEE-2 South · Las Campanas · Chile
             </div>
-  
+
             <div class="resume-date">
               2018 – 2019
             </div>
           </div>
 
-           <div class="resume-item">
-            <div class="resume-degree">
+          <div class="resume-item">
+            <div class="resume-degree" data-i18n="pos3-degree">
               Swope Telescope Observer
             </div>
-  
-            <div class="resume-place">
+
+            <div class="resume-place" data-i18n="pos3-place">
               Swope Supernova Survey · Las Campanas · Chile
             </div>
-  
+
             <div class="resume-date">
               2016 – 2019
             </div>
           </div>
-  
+
         </div>
-  
+
       </div>
-  
+
       <a href="CV_Nahir_Munoz_Elgueta.pdf"
          download
-         class="cv-button">
+         class="cv-button"
+         data-i18n="download-cv">
          Download Full CV
       </a>
-  
+
     </section>
-  
+
     <footer>
       © 2026 · Nahir Muñoz Elgueta
     </footer>
-  
+
   </div>
-  
+
   <!-- ───────── CONTACT ───────── -->
 
   <div id="page-contact" class="page">
 
     <section class="section">
 
-      <h2><b>Contact</b></h2>
+      <h2><b data-i18n="contact-heading">Contact</b></h2>
 
-      <p>Feel free to get in touch with me:</p>
+      <p data-i18n="contact-intro">Feel free to get in touch with me:</p>
 
       <ul class="contact-list">
         <li>Email: <a href="mailto:nahirmunozelgueta@gmail.com">nahirmunozelgueta@gmail.com</a></li>
@@ -728,8 +782,6 @@
         </li>
       </ul>
 
-      
-
     </section>
 
     <footer>
@@ -742,20 +794,165 @@
 
   <script>
 
-    function showPage(name) {
+    /* ── Page navigation ── */
 
+    function showPage(name) {
       document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
       });
-
       document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
       });
-
       document.getElementById('page-' + name).classList.add('active');
       document.getElementById('nav-' + name).classList.add('active');
-
       window.scrollTo(0, 0);
+    }
+
+    /* ── Translations ── */
+
+    const translations = {
+      en: {
+        'nav-home':        'Home',
+        'nav-research':    'Research',
+        'nav-resume':      'Résumé',
+        'nav-contact':     'Contact',
+        'hero-subtitle':   'Astrophysicist · Data Analyst',
+        'about-heading':   'About Me',
+        'about-p1':        'I am a Chilean astrophysicist and data analyst based in Munich. I earned my Ph.D. in Astrophysics from the Ludwig-Maximilians-Universität.',
+        'about-p2':        'I have worked exploring galaxies and the distant universe, using different computational tools to understand how cosmic structures evolve. Along the way, I discovered that I really enjoy the process itself: analysing data, building models, uncovering patterns, and translating complexity into clarity.',
+        'about-p3':        'Communicating scientific discoveries to a general audience is something that deeply inspires me. I believe science has the power to connect people, and I\'m excited about contributing to that through analysis, creativity, and communication.',
+        'research-heading':'My Research',
+        'research1-title': 'Simulated [CII] emission in high-z star-forming galaxies',
+        'research1-p1':    'My research focuses on understanding high-redshift galaxy formation and evolution, with particular emphasis on the circumgalactic gas and its link with galaxy properties.',
+        'research1-p2':    'I have worked at the interface between observations and simulations. Using simulations, I predicted [CII] emission levels on halo scales of z~4–6 star-forming galaxies.',
+        'research2-title': 'Molecular gas reservoirs associated with z~3 quasars',
+        'research2-p1':    'The discovery of extended Lyman-alpha nebulae around high-redshift quasars opened the study of halo gas around massive systems.',
+        'research2-p2':    'With observations, I constrained the molecular gas reservoirs in quasars\' host galaxies at z~3 and explored their connection to extended Lyα emission.',
+        'research3-title': 'Kinematics and physical properties of nearby galaxies',
+        'research3-p1':    'During my master\'s studies, I performed a spectroscopic and kinematic analysis of a nearby interacting system of galaxies, determining their main physical properties.',
+        'view-pub':        'View publication →',
+        'resume-heading':  'Résumé',
+        'education-heading':'Education',
+        'phd-degree':      'Ph.D. in Astrophysics',
+        'phd-place':       'Ludwig-Maximilians-Universität München · Germany',
+        'master-degree':   'Master\'s in Astronomy',
+        'master-place':    'Universidad de La Serena · Chile',
+        'bachelor-degree': 'Bachelor\'s in Physics',
+        'bachelor-place':  'Universidad de La Serena · Chile',
+        'positions-heading':'Positions',
+        'pos1-degree':     'Astrophysics Researcher',
+        'pos1-place':      'Max Planck Institute for Astrophysics · Garching',
+        'pos2-degree':     'Observer & Plugger',
+        'pos2-place':      'SDSS IV / APOGEE-2 South · Las Campanas · Chile',
+        'pos3-degree':     'Swope Telescope Observer',
+        'pos3-place':      'Swope Supernova Survey · Las Campanas · Chile',
+        'download-cv':     'Download Full CV',
+        'contact-heading': 'Contact',
+        'contact-intro':   'Feel free to get in touch with me:',
+      },
+
+      es: {
+        'nav-home':        'Inicio',
+        'nav-research':    'Investigación',
+        'nav-resume':      'Currículum',
+        'nav-contact':     'Contacto',
+        'hero-subtitle':   'Astrofísica · Analista de Datos',
+        'about-heading':   'Sobre Mí',
+        'about-p1':        'Soy una astrofísica y analista de datos chilena radicada en Múnich. Obtuve mi doctorado en Astrofísica en la Ludwig-Maximilians-Universität.',
+        'about-p2':        'He trabajado explorando galaxias y el universo distante, utilizando distintas herramientas computacionales para comprender cómo evolucionan las estructuras cósmicas. En el camino, descubrí que disfruto mucho el proceso en sí: analizar datos, construir modelos, descubrir patrones y traducir la complejidad en claridad.',
+        'about-p3':        'Comunicar descubrimientos científicos a un público general es algo que me inspira profundamente. Creo que la ciencia tiene el poder de unir a las personas, y me entusiasma contribuir a eso a través del análisis, la creatividad y la comunicación.',
+        'research-heading':'Mi Investigación',
+        'research1-title': 'Emisión simulada de [CII] en galaxias de alta redshift en formación estelar',
+        'research1-p1':    'Mi investigación se centra en comprender la formación y evolución de galaxias de alto corrimiento al rojo, con especial énfasis en el gas circumgaláctico y su relación con las propiedades de las galaxias.',
+        'research1-p2':    'He trabajado en la interfaz entre observaciones y simulaciones. Usando simulaciones, predije los niveles de emisión de [CII] en escalas de halo de galaxias en formación estelar a z~4–6.',
+        'research2-title': 'Reservas de gas molecular asociadas a cuásares a z~3',
+        'research2-p1':    'El descubrimiento de nebulosas extendidas de Lyman-alfa alrededor de cuásares de alto corrimiento al rojo abrió el estudio del gas de halo en torno a sistemas masivos.',
+        'research2-p2':    'Con observaciones, restringí las reservas de gas molecular en las galaxias anfitrionas de cuásares a z~3 y exploré su conexión con la emisión extendida de Lyα.',
+        'research3-title': 'Cinemática y propiedades físicas de galaxias cercanas',
+        'research3-p1':    'Durante mis estudios de maestría, realicé un análisis espectroscópico y cinemático de un sistema cercano de galaxias en interacción, determinando sus principales propiedades físicas.',
+        'view-pub':        'Ver publicación →',
+        'resume-heading':  'Currículum',
+        'education-heading':'Educación',
+        'phd-degree':      'Doctorado en Astrofísica',
+        'phd-place':       'Ludwig-Maximilians-Universität München · Alemania',
+        'master-degree':   'Maestría en Astronomía',
+        'master-place':    'Universidad de La Serena · Chile',
+        'bachelor-degree': 'Licenciatura en Física',
+        'bachelor-place':  'Universidad de La Serena · Chile',
+        'positions-heading':'Posiciones',
+        'pos1-degree':     'Investigadora en Astrofísica',
+        'pos1-place':      'Instituto Max Planck de Astrofísica · Garching',
+        'pos2-degree':     'Observadora y Conectadora de Fibras',
+        'pos2-place':      'SDSS IV / APOGEE-2 South · Las Campanas · Chile',
+        'pos3-degree':     'Observadora del Telescopio Swope',
+        'pos3-place':      'Swope Supernova Survey · Las Campanas · Chile',
+        'download-cv':     'Descargar CV Completo',
+        'contact-heading': 'Contacto',
+        'contact-intro':   'No dudes en ponerte en contacto conmigo:',
+      },
+
+      de: {
+        'nav-home':        'Startseite',
+        'nav-research':    'Forschung',
+        'nav-resume':      'Lebenslauf',
+        'nav-contact':     'Kontakt',
+        'hero-subtitle':   'Astrophysikerin · Datenanalystin',
+        'about-heading':   'Über Mich',
+        'about-p1':        'Ich bin eine chilenische Astrophysikerin und Datenanalystin, die in München lebt. Ich habe meinen Doktortitel in Astrophysik an der Ludwig-Maximilians-Universität erworben.',
+        'about-p2':        'Ich habe an der Erforschung von Galaxien und dem fernen Universum gearbeitet und dabei verschiedene Rechenwerkzeuge eingesetzt, um zu verstehen, wie kosmische Strukturen entstehen. Dabei entdeckte ich, dass mir der Prozess selbst sehr viel Freude bereitet: Daten analysieren, Modelle erstellen, Muster aufdecken und Komplexität in Klarheit übersetzen.',
+        'about-p3':        'Wissenschaftliche Entdeckungen einem breiten Publikum zu vermitteln, ist etwas, das mich tief inspiriert. Ich glaube, dass Wissenschaft die Kraft hat, Menschen zu verbinden, und ich freue mich darauf, durch Analyse, Kreativität und Kommunikation dazu beizutragen.',
+        'research-heading':'Meine Forschung',
+        'research1-title': 'Simulierte [CII]-Emission in sternbildenden Galaxien bei hoher Rotverschiebung',
+        'research1-p1':    'Meine Forschung konzentriert sich auf das Verständnis der Galaxienbildung und -entwicklung bei hoher Rotverschiebung, mit besonderem Schwerpunkt auf dem zirkumgalaktischen Gas und seiner Verbindung zu den Galaxieneigenschaften.',
+        'research1-p2':    'Ich habe an der Schnittstelle zwischen Beobachtungen und Simulationen gearbeitet. Mithilfe von Simulationen sagte ich [CII]-Emissionsniveaus auf Halo-Skalen von sternbildenden Galaxien bei z~4–6 vorher.',
+        'research2-title': 'Molekulare Gasreservoirs assoziiert mit Quasaren bei z~3',
+        'research2-p1':    'Die Entdeckung ausgedehnter Lyman-Alpha-Nebel um hochrotverschobene Quasare eröffnete die Untersuchung des Halo-Gases um massereiche Systeme.',
+        'research2-p2':    'Mithilfe von Beobachtungen schränkte ich die molekularen Gasreservoirs in Wirtsgalaxien von Quasaren bei z~3 ein und untersuchte deren Verbindung zur ausgedehnten Lyα-Emission.',
+        'research3-title': 'Kinematik und physikalische Eigenschaften naher Galaxien',
+        'research3-p1':    'Während meines Masterstudiums führte ich eine spektroskopische und kinematische Analyse eines nahen wechselwirkenden Galaxiensystems durch und bestimmte dessen wichtigste physikalische Eigenschaften.',
+        'view-pub':        'Publikation ansehen →',
+        'resume-heading':  'Lebenslauf',
+        'education-heading':'Ausbildung',
+        'phd-degree':      'Promotion in Astrophysik',
+        'phd-place':       'Ludwig-Maximilians-Universität München · Deutschland',
+        'master-degree':   'Master in Astronomie',
+        'master-place':    'Universidad de La Serena · Chile',
+        'bachelor-degree': 'Bachelor in Physik',
+        'bachelor-place':  'Universidad de La Serena · Chile',
+        'positions-heading':'Positionen',
+        'pos1-degree':     'Astrophysik-Forscherin',
+        'pos1-place':      'Max-Planck-Institut für Astrophysik · Garching',
+        'pos2-degree':     'Beobachterin & Faserkopplerin',
+        'pos2-place':      'SDSS IV / APOGEE-2 South · Las Campanas · Chile',
+        'pos3-degree':     'Swope-Teleskop-Beobachterin',
+        'pos3-place':      'Swope Supernova Survey · Las Campanas · Chile',
+        'download-cv':     'Vollständigen Lebenslauf herunterladen',
+        'contact-heading': 'Kontakt',
+        'contact-intro':   'Nehmen Sie gerne Kontakt mit mir auf:',
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('lang-' + lang).classList.add('active');
+
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    /* Restore saved language on page load */
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang && savedLang !== 'en') {
+      setLanguage(savedLang);
     }
 
   </script>
